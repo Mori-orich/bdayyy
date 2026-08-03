@@ -2,203 +2,158 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Duduzilla Birthday Adventure 💖</title>
+<title>Duduzilla Birthday 💖</title>
 
 <style>
-
-*{
-box-sizing:border-box;
+body {
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#fff7fb);
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-body{
-margin:0;
-height:100vh;
-overflow:hidden;
-font-family:'Arial',sans-serif;
-background:radial-gradient(circle,#3d174f,#140020);
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
+.container {
+    text-align:center;
 }
 
-
-.stars{
-position:absolute;
-width:100%;
-height:100%;
+h1 {
+    color:#ff4f8b;
 }
 
-
-.star{
-position:absolute;
-font-size:20px;
-animation:float 5s infinite;
+p {
+    color:#555;
+    font-size:18px;
+    line-height:1.6;
 }
 
-
-@keyframes float{
-0%{transform:translateY(100vh);opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-20vh);opacity:0;}
+.envelope {
+    width:300px;
+    height:190px;
+    background:#ff8fb8;
+    position:relative;
+    margin:auto;
+    cursor:pointer;
+    border-radius:15px;
+    box-shadow:0 10px 35px #eaa;
+    transition:1s;
 }
 
-
-.screen{
-text-align:center;
-z-index:5;
+.flap {
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+    border-top:100px solid #ffb6d2;
+    transform-origin:top;
+    transition:1s;
 }
 
-
-h1{
-font-size:34px;
-color:#ffd1e6;
-text-shadow:0 0 15px pink;
+.bottom {
+    position:absolute;
+    bottom:0;
+    left:0;
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+    border-bottom:100px solid #ff6fa8;
 }
 
-
-p{
-font-size:20px;
+.paper {
+    position:absolute;
+    width:250px;
+    height:150px;
+    background:white;
+    left:25px;
+    top:25px;
+    border-radius:12px;
+    color:#ff4f8b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    z-index:-1;
+    transition:1s;
 }
 
-
-.heart{
-font-size:45px;
-cursor:pointer;
-position:absolute;
-animation:pulse 1s infinite;
+.open .flap {
+    transform:rotateX(180deg);
 }
 
-
-@keyframes pulse{
-50%{transform:scale(1.3);}
+.open .paper {
+    transform:translateY(-100px);
 }
 
-
-
-.envelope{
-display:none;
-width:300px;
-height:190px;
-background:#ff7fae;
-border-radius:15px;
-position:relative;
-cursor:pointer;
-box-shadow:0 0 40px pink;
-margin:auto;
-transition:1s;
-}
-
-
-.envelope:before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-border-left:150px solid transparent;
-border-right:150px solid transparent;
-border-top:100px solid #ffb5d1;
+.fly .paper {
+    transform:translateY(-300px) scale(1.2);
 }
 
 
-.front{
-position:absolute;
-bottom:0;
-border-left:150px solid transparent;
-border-right:150px solid transparent;
-border-bottom:100px solid #ff5f98;
+.message {
+    display:none;
+    background:white;
+    padding:25px;
+    width:330px;
+    border-radius:25px;
+    box-shadow:0 10px 40px #eaa;
+    animation:show 1s;
 }
 
 
-.paper{
-position:absolute;
-width:240px;
-height:140px;
-background:white;
-left:30px;
-top:30px;
-border-radius:10px;
-color:#ff4f8b;
-padding:20px;
-transform:translateY(0);
-transition:1s;
-z-index:-1;
+button {
+    background:#ff6fa8;
+    color:white;
+    border:0;
+    border-radius:25px;
+    padding:12px 25px;
+    font-size:17px;
 }
 
 
-.open .paper{
-transform:translateY(-120px);
+.heart {
+    position:absolute;
+    font-size:25px;
+    animation:rise 5s linear infinite;
 }
 
 
-.fly .paper{
-transform:translateY(-350px) scale(1.2);
+@keyframes rise {
+    from {
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to {
+        transform:translateY(-100vh);
+        opacity:0;
+    }
 }
 
 
-.message{
-display:none;
-background:white;
-color:#555;
-width:340px;
-padding:25px;
-border-radius:25px;
-animation:appear 1s;
+@keyframes show {
+    from {
+        transform:scale(.5);
+        opacity:0;
+    }
+    to {
+        transform:scale(1);
+        opacity:1;
+    }
 }
-
-
-.message h2{
-color:#ff4f8b;
-}
-
-
-@keyframes appear{
-from{
-opacity:0;
-transform:scale(.3);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
-
-
-button{
-background:#ff6fa8;
-color:white;
-border:0;
-padding:12px 25px;
-border-radius:30px;
-font-size:18px;
-cursor:pointer;
-}
-
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<div class="stars" id="stars"></div>
+<div class="container">
 
 
-<div class="screen">
-
-
-<div id="game">
-
-<h1>💌 A Secret Birthday Mission 💌</h1>
-
-<p>
-Find the magic heart to open Duduzilla's surprise ❤️
-</p>
-
-
-</div>
+<h1 id="title">💌 A secret surprise for Duduzilla 💌</h1>
 
 
 <div class="envelope" id="envelope" onclick="openEnvelope()">
@@ -207,27 +162,51 @@ Find the magic heart to open Duduzilla's surprise ❤️
 💌
 </div>
 
-<div class="front"></div>
+<div class="flap"></div>
+<div class="bottom"></div>
 
 </div>
 
+
+<p id="hint">
+Tap the envelope ❤️
+</p>
 
 
 <div class="message" id="message">
 
-<h2>💖 Happy Birthday My Duduzilla 💖</h2>
+<h1>💖 Happy Birthday My Duduzilla 💖</h1>
 
 <p>
-Today is a very special day for a very special person...
+Today is a very special day for a very special person.
 
 <br><br>
 
-Your secret birthday adventure has started ✨
+Happy birthday, my Duduzilla! 🎂❤️
+
+<br><br>
+
+This is my first time creating something like this,
+so I hope I am doing everything right hehe 🤭
+
+<br><br>
+
+I wish you the sweetest and the best things in this world.
+
+I love you so much and I appreciate every moment we spend together, even when we are far away.
+
+<br><br>
+
+You are the strongest, most handsome, smartest, hottest and cutest person in the whole world.
+
+<br><br>
+
+I love you ❤️
 
 </p>
 
-<button onclick="nextPage()">
-Continue 💕
+<button onclick="nextLetter()">
+Open next surprise 💌
 </button>
 
 </div>
@@ -236,86 +215,9 @@ Continue 💕
 </div>
 
 
-
-function nextPage(){
-
-document.getElementById("message").innerHTML = `
-
-<h2>🐻💗🐼 A Little Surprise</h2>
-
-<p>
-Dudu and Bubu have a secret message for you... ✨
-<br><br>
-
-You are one of the most special people in this world ❤️
-
-<br><br>
-
-More beautiful surprises are waiting 💌
-
-</p>
-
-<button onclick="nextPage2()">
-Open next letter 💕
-</button>
-
-`;
 <script>
 
-
-// stars
-
-for(let i=0;i<40;i++){
-
-let s=document.createElement("div");
-
-s.className="star";
-s.innerHTML="✨";
-
-s.style.left=Math.random()*100+"%";
-s.style.animationDelay=Math.random()*5+"s";
-
-document.getElementById("stars").appendChild(s);
-
-}
-
-
-
-// magic heart
-
-let goodHeart=document.createElement("div");
-
-goodHeart.className="heart";
-goodHeart.innerHTML="❤️";
-
-goodHeart.style.left=Math.random()*80+"%";
-goodHeart.style.top=Math.random()*70+"%";
-
-document.body.appendChild(goodHeart);
-
-
-goodHeart.onclick=function(){
-
-goodHeart.style.display="none";
-
-document.getElementById("game").innerHTML=
-
-"<h1>✨ You found it! ✨</h1><p>The secret letter is waiting...</p>";
-
-
-setTimeout(()=>{
-
-document.getElementById("envelope").style.display="block";
-
-},1500);
-
-
-}
-
-
-
-
-let clicks=0;
+let clicks = 0;
 
 
 function openEnvelope(){
@@ -323,35 +225,79 @@ function openEnvelope(){
 clicks++;
 
 let env=document.getElementById("envelope");
+let hint=document.getElementById("hint");
 
 
-if(clicks==1){
+if(clicks===1){
 
 env.classList.add("open");
+hint.innerHTML="One more time 💕";
 
 }
 
 
-if(clicks==2){
+if(clicks===2){
 
 env.classList.add("fly");
+hint.innerHTML="Almost there ✨";
+
+}
 
 
-setTimeout(()=>{
+if(clicks===3){
 
 env.style.display="none";
-
+hint.style.display="none";
+document.getElementById("title").style.display="none";
 document.getElementById("message").style.display="block";
 
-},1000);
 
+for(let i=0;i<40;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(heart);
+
+}
+
+}
 
 }
 
 
+
+function nextLetter(){
+
+document.getElementById("message").innerHTML=`
+
+<h1>🐻💗🐼</h1>
+
+<p>
+Even when we are far away,
+you are always close to my heart.
+
+<br><br>
+
+You are my favorite person.
+Thank you for being you ❤️
+
+<br><br>
+
+More surprises are coming...
+
+✨💌✨
+
+</p>
+
+`;
+
 }
-
-
 
 </script>
 
