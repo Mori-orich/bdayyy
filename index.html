@@ -226,7 +226,7 @@ Your secret birthday adventure has started ✨
 
 </p>
 
-<button onclick="alert('More surprises coming ❤️')">
+<button onclick="nextPage()">
 Continue 💕
 </button>
 
@@ -237,7 +237,29 @@ Continue 💕
 
 
 
+function nextPage(){
 
+document.getElementById("message").innerHTML = `
+
+<h2>🐻💗🐼 A Little Surprise</h2>
+
+<p>
+Dudu and Bubu have a secret message for you... ✨
+<br><br>
+
+You are one of the most special people in this world ❤️
+
+<br><br>
+
+More beautiful surprises are waiting 💌
+
+</p>
+
+<button onclick="nextPage2()">
+Open next letter 💕
+</button>
+
+`;
 <script>
 
 
