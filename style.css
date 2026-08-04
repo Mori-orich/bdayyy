@@ -1,50 +1,240 @@
+*{
+    box-sizing:border-box;
+}
+
+
 body{
     margin:0;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#ffd6e8,#fff);
+    overflow:hidden;
+    background:
+    linear-gradient(135deg,#ffd6e8,#fff8fc,#ffc7df);
     font-family:Georgia,serif;
 }
 
 
 #app{
-    width:90%;
-    max-width:700px;
+    width:95%;
+    max-width:1000px;
 }
 
 
 .card{
     background:white;
-    padding:40px;
-    border-radius:30px;
+    border-radius:35px;
+    padding:30px;
     text-align:center;
-    box-shadow:0 0 30px pink;
+    box-shadow:0 0 40px rgba(255,80,150,.35);
+    border:3px solid #ffd0e2;
+    animation:show .7s ease;
+}
+
+
+@keyframes show{
+
+from{
+    opacity:0;
+    transform:scale(.8);
+}
+
+to{
+    opacity:1;
+    transform:scale(1);
+}
+
 }
 
 
 h1{
     color:#ff4f91;
+    font-size:36px;
 }
 
 
 p{
-    font-size:20px;
+    color:#555;
+    font-size:19px;
+    line-height:1.6;
 }
 
 
 button{
+    display:block;
+    margin:25px auto 5px;
     background:#ff70aa;
     color:white;
     border:none;
-    padding:15px 35px;
-    border-radius:30px;
-    font-size:18px;
+    padding:15px 40px;
+    border-radius:40px;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 8px 20px #ffc1db;
+}
+
+
+button:hover{
+    transform:scale(1.08);
 }
 
 
 .heart{
     font-size:90px;
     cursor:pointer;
+    animation:pulse 1s infinite;
+}
+
+
+@keyframes pulse{
+
+50%{
+    transform:scale(1.2);
+}
+
+}
+
+
+
+/* картинки по бокам письма */
+
+
+.characters{
+
+display:grid;
+grid-template-columns:140px 1fr 140px;
+align-items:center;
+gap:15px;
+
+}
+
+
+.characters img{
+
+width:140px;
+height:140px;
+object-fit:contain;
+animation:float 3s infinite;
+
+}
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+
+
+/* конверт */
+
+
+.envelope{
+
+width:280px;
+height:180px;
+background:#ff82b5;
+border-radius:20px;
+margin:25px auto;
+position:relative;
+cursor:pointer;
+
+}
+
+
+.paper{
+
+position:absolute;
+background:white;
+width:230px;
+height:130px;
+left:25px;
+top:25px;
+border-radius:15px;
+font-size:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+/* большие картинки */
+
+
+.bigImage{
+
+width:300px;
+max-width:80%;
+}
+
+
+/* сердечки */
+
+.falling-heart{
+
+position:fixed;
+top:-20px;
+font-size:25px;
+animation:fall 5s linear infinite;
+
+}
+
+
+@keyframes fall{
+
+to{
+transform:translateY(110vh);
+}
+
+}
+
+
+
+/* телефон */
+
+
+@media(max-width:700px){
+
+
+.characters{
+
+grid-template-columns:70px 1fr 70px;
+
+}
+
+
+.characters img{
+
+width:70px;
+height:70px;
+
+}
+
+
+h1{
+
+font-size:26px;
+
+}
+
+
+p{
+
+font-size:16px;
+
+}
+
+
+.card{
+
+padding:20px;
+
+}
+
 }
