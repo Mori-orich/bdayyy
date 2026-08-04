@@ -154,7 +154,59 @@ let value=document.getElementById("code").value;
 
 if(value=="09.08" || value=="0908"){
 
-firstLetter();
+unlockAnimation();
+
+}
+function unlockAnimation(){
+
+app.innerHTML=`
+
+<div class="card">
+
+<div class="lock">
+🔒
+</div>
+
+<h1>
+Unlocking... ✨
+</h1>
+
+<p>
+The secret is revealed ❤️
+</p>
+
+</div>
+
+`;
+
+
+setTimeout(()=>{
+
+app.innerHTML=`
+
+<div class="card">
+
+<div class="lock">
+🔓
+</div>
+
+<h1>
+Unlocked! ❤️
+</h1>
+
+<p>
+You found the special date 🎂
+</p>
+
+<button onclick="firstLetter()">
+Open the letter 💌
+</button>
+
+</div>
+
+`;
+
+},1500);
 
 }
 
