@@ -588,25 +588,25 @@ effects();
 
 function playMusic(){
 
-const music = document.getElementById("birthdayMusic");
+let music = document.getElementById("birthdayMusic");
 
-if(music){
+if (!music) {
+    alert("Audio not found");
+    return;
+}
 
-music.volume = 0.5;
+music.load();
+
+music.volume = 0.7;
 
 music.play()
-.then(()=>{
-
-console.log("Music started");
-
+.then(() => {
+    console.log("Music started");
 })
-.catch((error)=>{
-
-console.log(error);
-
+.catch((error) => {
+    alert("Music error");
+    console.log(error);
 });
-
-}
 
 }
 
