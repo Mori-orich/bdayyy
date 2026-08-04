@@ -315,11 +315,11 @@ Happy Birthday! 🎂
 
 <br><br>
 
-I created this little adventure especially for you.
+I created this little adventure especially for you. I RLLY TRYIED TO DO THIS and i hope it works...
 
 <br><br>
 
-You are a very special person ❤️
+ME BOMBOCLAAAAAAT ❤️
 
 </p>
 
@@ -366,7 +366,7 @@ app.innerHTML=`
 <p>
 PAPOIIII 🍌❤️
 <br>
-Happy Birthday!
+STOPAAAAH!
 </p>
 
 
