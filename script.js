@@ -61,6 +61,10 @@ app.innerHTML=`
 Find my magic heart ❤️
 </p>
 
+<button onclick="playMusic()">
+🎵 Start Music
+</button>
+
 
 <div id="heart" class="heart" onclick="catchHeart()">
 ❤️
@@ -590,5 +594,17 @@ effects();
 }
 
 
+function playMusic(){
+
+let music=document.getElementById("birthdayMusic");
+
+if(music){
+
+music.volume=0.5;
+music.play();
+
+}
+
+}
 
 start();
