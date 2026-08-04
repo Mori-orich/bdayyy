@@ -1,29 +1,37 @@
 const app = document.getElementById("app");
 
+let tries = 0;
+
 
 function hearts(){
 
-for(let i=0;i<8;i++){
+for(let i=0;i<20;i++){
 
 let h=document.createElement("div");
 
-h.className="falling-heart";
+h.className="fall";
 h.innerHTML="❤️";
 
 h.style.left=Math.random()*100+"%";
-h.style.animationDelay=Math.random()*5+"s";
 
 document.body.appendChild(h);
 
-}
+
+setTimeout(()=>{
+
+h.remove();
+
+},5000);
 
 }
 
+}
 
-let heartClicks = 0;
+
 
 
 function start(){
+
 
 app.innerHTML=`
 
@@ -33,106 +41,84 @@ app.innerHTML=`
 💌 Birthday Adventure 💌
 </h1>
 
+
 <p>
-Find the magic heart ❤️
+Find my magic heart ❤️
 </p>
 
-<div id="movingHeart" class="heart" onclick="findHeart()">
+
+<div id="heart" class="heart" onclick="catchHeart()">
 ❤️
 </div>
+
 
 </div>
 
 `;
 
+
 moveHeart();
 
 }
+
+
+
 
 
 function moveHeart(){
 
-let heart=document.getElementById("movingHeart");
+let heart=document.getElementById("heart");
 
-if(!heart) return;
-
-
-heart.style.position="fixed";
+if(!heart)return;
 
 
-let x = Math.random() * (window.innerWidth - 120);
-
-let y = Math.random() * (window.innerHeight - 120);
-
-
-heart.style.left = x + "px";
-
-heart.style.top = y + "px";
+heart.style.left=
+Math.random()*(window.innerWidth-100)+"px";
 
 
-heart.style.transition="0.4s";
+heart.style.top=
+Math.random()*(window.innerHeight-100)+"px";
+
 
 }
 
 
 
 
-function findHeart(){
 
-heartClicks++;
+function catchHeart(){
+
+tries++;
 
 
-if(heartClicks == 1){
+if(tries<3){
+
+let text=
+tries==1
+?
+"😜 Not so fast! Catch my heart!"
+:
+"🤭 Almost! One more try ❤️";
+
 
 app.innerHTML=`
 
 <div class="card">
 
 <h1>
-😜 Not so fast!
+${text}
 </h1>
 
-<p>
-The heart is running away... catch it ❤️
-</p>
 
-<div id="movingHeart" class="heart" onclick="findHeart()">
+<div id="heart" class="heart" onclick="catchHeart()">
 ❤️
 </div>
+
 
 </div>
 
 `;
 
-moveHeart();
-
-return;
-
-}
-
-
-
-if(heartClicks == 2){
-
-app.innerHTML=`
-
-<div class="card">
-
-<h1>
-🤭 Almost!
-</h1>
-
-<p>
-One more try... you can do it 💖
-</p>
-
-<div id="movingHeart" class="heart" onclick="findHeart()">
-❤️
-</div>
-
-</div>
-
-`;
 
 moveHeart();
 
@@ -156,33 +142,7 @@ The adventure begins ❤️
 </p>
 
 
-<button onclick="envelope()">
-Open the envelope 💌
-</button>
-
-
-</div>
-
-`;
-
-}
-
-
-app.innerHTML=`
-
-<div class="card">
-
-<h1>
-✨ You found it! ✨
-</h1>
-
-
-<p>
-The adventure begins ❤️
-</p>
-
-
-<button onclick="envelope()">
+<button onclick="openEnvelope()">
 Open the envelope 💌
 </button>
 
@@ -195,22 +155,22 @@ Open the envelope 💌
 
 
 
-function envelope(){
+
+
+function openEnvelope(){
+
 
 app.innerHTML=`
 
 <div class="card">
 
+
 <h1>
-💌 A mysterious letter
+💌 A secret letter
 </h1>
 
 
 <div class="envelope" onclick="password()">
-
-<div class="paper">
-❤️
-</div>
 
 </div>
 
@@ -228,7 +188,10 @@ Click the envelope
 
 
 
+
+
 function password(){
+
 
 app.innerHTML=`
 
@@ -240,24 +203,22 @@ app.innerHTML=`
 
 
 <p>
-Only Duduzilla knows this special date ❤️
-<br>
-Hint: DD.MM 🎂
+Enter the special date ❤️
 </p>
 
 
 <input id="code"
 placeholder="DD.MM"
 style="
-padding:12px;
+padding:15px;
 font-size:20px;
 border-radius:20px;
-text-align:center;
 border:2px solid pink;
+text-align:center;
 ">
 
 
-<button onclick="checkCode()">
+<button onclick="check()">
 Unlock 🔓
 </button>
 
@@ -273,29 +234,35 @@ Unlock 🔓
 
 
 
-function checkCode(){
 
-let c=document.getElementById("code").value;
+function check(){
 
 
-if(c=="09.08" || c=="0908"){
+let code=document.getElementById("code").value;
 
-firstLetter();
+
+if(code=="09.08" || code=="0908"){
+
+letter();
 
 }
 
 else{
 
 document.getElementById("error").innerHTML=
-"❌ Try again ❤️";
+"Wrong date ❤️";
 
 }
 
+
 }
 
 
 
-function firstLetter(){
+
+
+function letter(){
+
 
 hearts();
 
@@ -304,12 +271,14 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <div class="characters">
+
 
 <img src="dudu.png">
 
 
-<div>
+<div class="letter">
 
 <h1>
 💖 Happy Birthday My Duduzilla 💖
@@ -322,15 +291,11 @@ Happy Birthday! 🎂
 
 <br><br>
 
-I created this little adventure only for you.
+I made this little adventure only for you.
 
 <br><br>
 
-You are a very special person ❤️
-
-<br><br>
-
-More surprises are waiting...
+You are very special ❤️
 
 </p>
 
@@ -348,11 +313,14 @@ Continue 💕
 
 </div>
 
+
 </div>
 
 `;
 
 }
+
+
 
 
 
@@ -364,7 +332,7 @@ app.innerHTML=`
 <div class="card">
 
 <h1>
-🍌 Minions have a message!
+🍌 Minions message
 </h1>
 
 
@@ -372,13 +340,13 @@ app.innerHTML=`
 
 
 <p>
-Bananaaaa! 🍌
+PAPOIIII 🍌❤️
 <br>
-Happy Birthday! ❤️
+Happy Birthday!
 </p>
 
 
-<button onclick="cats()">
+<button onclick="catOne()">
 Next 🐱
 </button>
 
@@ -392,7 +360,8 @@ Next 🐱
 
 
 
-function cats(){
+
+function catOne(){
 
 
 app.innerHTML=`
@@ -400,7 +369,7 @@ app.innerHTML=`
 <div class="card">
 
 <h1>
-🐱 A little cat surprise
+🐱 For my lovely kitty
 </h1>
 
 
@@ -408,11 +377,13 @@ app.innerHTML=`
 
 
 <p>
-A cute little wish from a cute little friend ❤️
+
+A cute little wish for my lovely kitty 🐱❤️
+
 </p>
 
 
-<button onclick="cats2()">
+<button onclick="catTwo()">
 Next 🐾
 </button>
 
@@ -426,7 +397,7 @@ Next 🐾
 
 
 
-function cats2(){
+function catTwo(){
 
 
 app.innerHTML=`
@@ -434,7 +405,7 @@ app.innerHTML=`
 <div class="card">
 
 <h1>
-🐱 Another surprise
+🐾 More cuddles
 </h1>
 
 
@@ -442,12 +413,14 @@ app.innerHTML=`
 
 
 <p>
-More love is coming ❤️
+
+Sending you endless hugs and warm paws ❤️
+
 </p>
 
 
 <button onclick="gift()">
-Open gift 🎁
+Gift 🎁
 </button>
 
 
@@ -460,6 +433,7 @@ Open gift 🎁
 
 
 
+
 function gift(){
 
 
@@ -468,18 +442,13 @@ app.innerHTML=`
 <div class="card">
 
 <h1>
-🎁 A special gift
+🎁 One last surprise
 </h1>
 
 
 <div style="font-size:100px">
 🎁
 </div>
-
-
-<p>
-Click for the final surprise...
-</p>
 
 
 <button onclick="cake()">
@@ -496,13 +465,16 @@ Open 🎂
 
 
 
+
 function cake(){
 
 
 let music=document.getElementById("birthdayMusic");
 
 if(music){
+
 music.play();
+
 }
 
 
@@ -513,28 +485,25 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <h1>
-🎂 Happy Birthday! 🎂
+🎂 Happy Birthday 🎂
 </h1>
 
 
-<div style="font-size:100px">
-🧁
+<div class="cake">
+🎂🕯️🕯️🕯️
 </div>
 
 
 <p>
+
 Make a wish ✨
-</p>
 
+<br><br>
 
-<h1>
-🎆❤️🎆
-</h1>
+You completed the adventure ❤️
 
-
-<p>
-You completed the adventure 💖
 </p>
 
 
@@ -543,6 +512,8 @@ You completed the adventure 💖
 `;
 
 }
+
+
 
 
 
