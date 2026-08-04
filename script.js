@@ -56,13 +56,21 @@ let heart=document.getElementById("movingHeart");
 
 if(!heart) return;
 
-heart.style.position="relative";
 
-heart.style.left =
-(Math.random()*250-125)+"px";
+heart.style.position="fixed";
 
-heart.style.top =
-(Math.random()*100-50)+"px";
+
+let x = Math.random() * (window.innerWidth - 120);
+
+let y = Math.random() * (window.innerHeight - 120);
+
+
+heart.style.left = x + "px";
+
+heart.style.top = y + "px";
+
+
+heart.style.transition="0.4s";
 
 }
 
