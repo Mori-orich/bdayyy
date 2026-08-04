@@ -352,3 +352,66 @@ padding:20px;
 }
 
 }
+/* открытие конверта */
+
+.envelope.open .letterInside{
+    animation:letterUp 1s forwards;
+}
+
+
+@keyframes letterUp{
+
+0%{
+transform:translateY(0);
+}
+
+100%{
+transform:translateY(-100px);
+}
+
+}
+
+
+.envelope.open:before{
+
+transform:rotateX(180deg);
+
+}
+
+
+.envelope:before{
+
+transition:1s;
+
+transform-origin:top;
+
+}
+
+
+.letterInside{
+
+position:absolute;
+
+background:white;
+
+width:230px;
+
+height:130px;
+
+left:35px;
+
+top:50px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:50px;
+
+transition:1s;
+
+}
