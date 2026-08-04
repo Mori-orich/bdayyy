@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Duduzilla Birthday 💖</title>
+<title>Happy Birthday Duduzilla ❤️</title>
 
 <style>
 
@@ -13,54 +13,59 @@ box-sizing:border-box;
 
 body{
 margin:0;
-height:100vh;
-background:linear-gradient(135deg,#ffd6e8,#fff0f7,#ffc5db);
-font-family:Georgia,serif;
+min-height:100vh;
+background:linear-gradient(135deg,#ffd6e8,#fff5fb,#ffc9df);
+font-family:"Georgia",serif;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 
 #app{
-width:95%;
-max-width:600px;
+width:100%;
+max-width:1000px;
+padding:20px;
 }
 
 
 .card{
-position:relative;
 background:white;
-border-radius:40px;
-padding:40px 35px;
-min-height:550px;
-text-align:center;
-box-shadow:0 0 50px #ff9fc5;
+border-radius:45px;
+padding:35px 45px;
+min-height:430px;
+box-shadow:0 0 50px rgba(255,100,160,.45);
 border:4px solid #ffd1e3;
-animation:show 1s;
+animation:show 0.8s ease;
+position:relative;
 }
 
 
 @keyframes show{
+
 from{
 opacity:0;
-transform:scale(.7);
+transform:scale(.8);
 }
+
 to{
 opacity:1;
 transform:scale(1);
 }
+
 }
 
 
 h1{
+text-align:center;
 color:#ff4f8b;
 font-size:38px;
 }
 
 
 p{
+text-align:center;
 font-size:21px;
 line-height:1.8;
 color:#555;
@@ -68,105 +73,217 @@ color:#555;
 
 
 button{
-background:#ff6fa8;
-border:0;
-color:white;
-font-size:20px;
-padding:15px 35px;
+
+display:block;
+margin:25px auto 0;
+
+background:linear-gradient(45deg,#ff5f9e,#ff91c4);
+
+border:none;
 border-radius:50px;
+
+padding:16px 40px;
+
+font-size:20px;
+
+color:white;
+
 cursor:pointer;
-margin-top:20px;
+
+box-shadow:0 8px 20px #ffc1dc;
+
 }
 
 
-.envelope{
-width:330px;
-height:210px;
-background:#ff78aa;
-margin:30px auto;
-border-radius:20px;
-position:relative;
-cursor:pointer;
-}
+button:hover{
 
+transform:scale(1.08);
 
-.flap{
-position:absolute;
-border-left:165px solid transparent;
-border-right:165px solid transparent;
-border-top:120px solid #ffc0d9;
-}
-
-
-.paper{
-position:absolute;
-background:white;
-width:280px;
-height:170px;
-left:25px;
-top:20px;
-border-radius:20px;
-font-size:60px;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:-1;
-transition:1s;
-}
-
-
-.open .paper{
-transform:translateY(-120px);
-z-index:2;
 }
 
 
 .characters{
-display:flex;
-justify-content:space-between;
+
+display:grid;
+
+grid-template-columns:220px 1fr 220px;
+
 align-items:center;
+
+gap:15px;
+
 }
 
 
 .characters img{
-width:150px;
-height:150px;
+
+width:220px;
+
+height:220px;
+
 object-fit:contain;
-animation:float 3s infinite;
+
+animation:float 3s infinite ease-in-out;
+
 }
 
 
 @keyframes float{
+
 50%{
+
 transform:translateY(-15px);
+
 }
+
 }
 
 
 .centerText{
-width:55%;
+
+width:100%;
+
 }
 
 
-.bigImage{
-width:260px;
-max-height:220px;
-object-fit:contain;
+.envelope{
+
+width:350px;
+
+height:220px;
+
+background:#ff79ad;
+
+margin:40px auto;
+
+border-radius:25px;
+
+position:relative;
+
+cursor:pointer;
+
+box-shadow:0 0 35px pink;
+
 }
 
+
+.flap{
+
+position:absolute;
+
+border-left:175px solid transparent;
+
+border-right:175px solid transparent;
+
+border-top:125px solid #ffc1dc;
+
+}
+
+
+.paper{
+
+position:absolute;
+
+background:white;
+
+width:290px;
+
+height:180px;
+
+left:30px;
+
+top:20px;
+
+border-radius:25px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:70px;
+
+z-index:-1;
+
+transition:1s;
+
+}
+
+
+.open .paper{
+
+transform:translateY(-140px);
+
+z-index:3;
+
+}
 
 
 .heart{
-font-size:80px;
+
+font-size:90px;
+
+text-align:center;
+
 cursor:pointer;
+
 animation:pulse 1s infinite;
+
 }
 
 
 @keyframes pulse{
+
 50%{
-transform:scale(1.2);
+
+transform:scale(1.15);
+
 }
+
+}
+
+
+.bigImage{
+
+display:block;
+
+width:260px;
+
+height:220px;
+
+object-fit:contain;
+
+margin:auto;
+
+}
+
+
+.floating{
+
+position:fixed;
+
+font-size:25px;
+
+animation:fall linear infinite;
+
+}
+
+
+@keyframes fall{
+
+from{
+
+transform:translateY(-100px);
+
+}
+
+to{
+
+transform:translateY(110vh);
+
+}
+
 }
 
 
@@ -187,6 +304,30 @@ transform:scale(1.2);
 let app=document.getElementById("app");
 
 
+function hearts(){
+
+for(let i=0;i<25;i++){
+
+let h=document.createElement("div");
+
+h.className="floating";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+}
+
+}
+
+
+hearts();
+
+
 function start(){
 
 app.innerHTML=`
@@ -197,17 +338,21 @@ app.innerHTML=`
 💌 Birthday Quest 💌
 </h1>
 
+
 <p>
-A secret surprise was created for my Duduzilla ❤️
+A secret surprise was created especially for my Duduzilla ❤️
 </p>
 
-<div class="heart" onclick="heart()">
+
+<div class="heart" onclick="findHeart()">
 💗
 </div>
+
 
 <p>
 Find the magic heart
 </p>
+
 
 </div>
 
@@ -216,17 +361,18 @@ Find the magic heart
 }
 
 
-function heart(){
+function findHeart(){
 
 app.innerHTML=`
 
 <div class="card">
 
 <h1>
-✨ You found it ✨
+✨ You found the secret ✨
 </h1>
 
-<div class="envelope" onclick="openMail(this)">
+
+<div class="envelope" onclick="openEnvelope(this)">
 
 <div class="paper">
 💌
@@ -236,9 +382,11 @@ app.innerHTML=`
 
 </div>
 
+
 <p>
 Click the envelope twice 💕
 </p>
+
 
 </div>
 
@@ -247,31 +395,33 @@ Click the envelope twice 💕
 }
 
 
-let clicks=0;
+let count=0;
 
-function openMail(el){
 
-clicks++;
+function openEnvelope(e){
 
-el.classList.add("open");
+count++;
 
-if(clicks==2){
-first();
+e.classList.add("open");
+
+
+if(count==2){
+
+letterOne();
+
 }
 
 }
-
-
-function first(){
+function letterOne(){
 
 app.innerHTML=`
 
 <div class="card">
 
-
 <div class="characters">
 
 <img src="dudu.png">
+
 
 <div class="centerText">
 
@@ -279,13 +429,14 @@ app.innerHTML=`
 💖 Happy Birthday My Duduzilla 💖
 </h1>
 
+
 <p>
 
 Today is a very special day for a very special person.
 
 <br><br>
 
-Happy birthday, my Duduzilla!
+Happy birthday, my Duduzilla! 🎂
 
 <br><br>
 
@@ -293,11 +444,17 @@ This is my first time creating something like this hehe 🤭
 
 <br><br>
 
-I wish you the sweetest and best things in this world.
+I wish you the sweetest and the best things in this world.
 
 <br><br>
 
-You are strong, handsome, smart, hot and the cutest person ever.
+I love and appreciate every moment we spend together,
+even when we are far away.
+
+<br><br>
+
+You are the strongest, most handsome,
+smartest, hottest and cutest person in the whole world.
 
 <br><br>
 
@@ -305,7 +462,9 @@ I love you so much ❤️
 
 </p>
 
+
 </div>
+
 
 <img src="bubu.png">
 
@@ -331,6 +490,7 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <img class="bigImage" src="minions.png">
 
 
@@ -341,7 +501,7 @@ app.innerHTML=`
 
 <p>
 
-Even the Minions know:
+Even the Minions have something to say...
 
 <br><br>
 
@@ -349,7 +509,8 @@ You are funny, amazing and one of a kind.
 
 <br><br>
 
-Keep smiling and chasing your dreams ❤️
+Keep smiling, keep dreaming and never forget
+how special you are ❤️
 
 </p>
 
@@ -358,11 +519,13 @@ Keep smiling and chasing your dreams ❤️
 Continue 💕
 </button>
 
+
 </div>
 
 `;
 
 }
+
 
 
 
@@ -375,26 +538,34 @@ app.innerHTML=`
 
 <div class="characters">
 
+
 <img src="mew.png">
+
 
 <div class="centerText">
 
+
 <h1>
-🐱 Cat Love Message 🐱
+🐱 Cat Love Letter 🐱
 </h1>
 
 
 <p>
 
-The little cats want to remind you:
+The little cats came with a message...
 
 <br><br>
 
-You deserve endless happiness, love and beautiful moments.
+You deserve endless happiness,
+love and beautiful moments.
 
 <br><br>
 
-Never forget how special you are ❤️
+Thank you for being you ❤️
+
+<br><br>
+
+Never forget how loved you are.
 
 </p>
 
@@ -409,7 +580,7 @@ Never forget how special you are ❤️
 
 
 <button onclick="finalPage()">
-Continue 💖
+Continue ❤️
 </button>
 
 
@@ -421,11 +592,13 @@ Continue 💖
 
 
 
+
 function finalPage(){
 
 app.innerHTML=`
 
 <div class="card">
+
 
 <h1>
 🎂 Happy Birthday Duduzilla 🎂
@@ -438,20 +611,36 @@ This little adventure was made only for you.
 
 <br><br>
 
-Distance cannot change how much you mean to me.
+Even though we are far away,
+you are always close to my heart.
 
 <br><br>
 
-Thank you for every smile and every moment.
+Thank you for every smile,
+every conversation and every beautiful moment.
 
 <br><br>
 
-I love you forever ❤️
+You are my favorite person ❤️
+
+<br><br>
+
+I love you forever.
 
 </p>
 
 
-<img class="bigImage" src="dudu.png">
+<div class="characters">
+
+<img src="dudu.png">
+
+<div>
+❤️✨❤️✨❤️
+</div>
+
+<img src="bubu.png">
+
+</div>
 
 
 </div>
@@ -459,6 +648,7 @@ I love you forever ❤️
 `;
 
 }
+
 
 
 start();
