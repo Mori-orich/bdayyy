@@ -82,11 +82,88 @@ function findHeart(){
 heartClicks++;
 
 
-if(heartClicks < 3){
+if(heartClicks == 1){
+
+app.innerHTML=`
+
+<div class="card">
+
+<h1>
+😜 Not so fast!
+</h1>
+
+<p>
+The heart is running away... catch it ❤️
+</p>
+
+<div id="movingHeart" class="heart" onclick="findHeart()">
+❤️
+</div>
+
+</div>
+
+`;
 
 moveHeart();
 
 return;
+
+}
+
+
+
+if(heartClicks == 2){
+
+app.innerHTML=`
+
+<div class="card">
+
+<h1>
+🤭 Almost!
+</h1>
+
+<p>
+One more try... you can do it 💖
+</p>
+
+<div id="movingHeart" class="heart" onclick="findHeart()">
+❤️
+</div>
+
+</div>
+
+`;
+
+moveHeart();
+
+return;
+
+}
+
+
+
+app.innerHTML=`
+
+<div class="card">
+
+<h1>
+✨ You found my heart! ✨
+</h1>
+
+
+<p>
+The adventure begins ❤️
+</p>
+
+
+<button onclick="envelope()">
+Open the envelope 💌
+</button>
+
+
+</div>
+
+`;
 
 }
 
