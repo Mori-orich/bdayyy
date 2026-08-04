@@ -30,6 +30,13 @@ body{
     box-shadow:0 0 40px rgba(255,80,150,.35);
     border:3px solid #ffd0e2;
     animation:show .7s ease;
+    text-align:center;
+}
+
+
+button{
+    display:block;
+    margin:20px auto;
 }
 
 
