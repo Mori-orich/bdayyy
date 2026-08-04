@@ -469,7 +469,7 @@ app.innerHTML=`
 </h1>
 
 
-<img src="dudububu.gif" class="bigImage">
+<img src="dudububu2.gif" class="bigImage">
 
 
 <button onclick="cake()">
@@ -562,7 +562,7 @@ app.innerHTML=`
 
 let text=
 
-"Happy Birthday my Duduzilla ❤️ Thank you for being such a wonderful person. I hope your day is full of happiness, smiles and beautiful moments. Never forget how special you are 💖";
+"Happy Birthday my Georgiiii ❤️ Thank you for being such a wonderful person. I hope your day is full of happiness, smiles and beautiful moments. I LUB YOU SO MUUUUCH MEOWIE WOOOWIEE <333. Never forget how special you are 💖";
 
 
 let i=0;
