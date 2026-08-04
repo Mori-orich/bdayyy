@@ -588,9 +588,7 @@ effects();
 
 function playMusic(){
 
-const music = document.getElementById("birthdayMusic");
-
-music.play();
+alert("Кнопка работает");
 
 }
 
