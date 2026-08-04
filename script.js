@@ -305,7 +305,7 @@ app.innerHTML=`
 
 
 <h1>
-💖 Happy Birthday My Duduzilla 💖
+💖 FOR MY CUTIE PATOOTIE 💖
 </h1>
 
 
@@ -562,7 +562,7 @@ app.innerHTML=`
 
 let text=
 
-"Happy Birthday my Georgiiii ❤️ Thank you for being such a wonderful person. I hope your day is full of happiness, smiles and beautiful moments. I LUB YOU SO MUUUUCH MEOWIE WOOOWIEE <333. Never forget how special you are 💖";
+"Happy Birthday my Georgiiii ❤️ Thank you for being such a wonderful person. I hope your day is full of happiness, smiles and beautiful moments. Dont forget that you are the most beautiful, sweet, hot, smart, strong, lovely boy in the whole world! I LUB YOU SO MUUUUCH MEOWIE WOOOWIEE <333. Never forget how special you are 💖";
 
 
 let i=0;
