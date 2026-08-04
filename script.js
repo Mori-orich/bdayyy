@@ -509,13 +509,9 @@ app.innerHTML=`
 </h1>
 
 
-<div class="pixelCake">
+<div class="cakePhoto">
 
-🕯️ 🕯️ 🕯️
-<br>
-🍰🍰🍰
-<br>
-🟫🟫🟫
+<img src="cake.gif">
 
 </div>
 
