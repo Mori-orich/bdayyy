@@ -494,14 +494,6 @@ Open 🎂
 function cake(){
 
 
-let music=document.getElementById("birthdayMusic");
-
-if(music){
-
-music.play();
-
-}
-
 
 effects();
 
