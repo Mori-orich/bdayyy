@@ -79,9 +79,6 @@ app.innerHTML=`
 Find my magic heart ❤️
 </p>
 
-<button onclick="playMusic();">
-🎵 Start Music
-</button>
 
 
 <div id="heart" class="heart" onclick="catchHeart()">
@@ -604,28 +601,5 @@ effects();
 }
 
 
-function playMusic(){
-
-let music = document.getElementById("birthdayMusic");
-
-if (!music) {
-    alert("Audio not found");
-    return;
-}
-
-music.load();
-
-music.volume = 0.7;
-
-music.play()
-.then(() => {
-    console.log("Music started");
-})
-.catch((error) => {
-    alert("Music error");
-    console.log(error);
-});
-
-}
 
 start();
