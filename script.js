@@ -588,21 +588,9 @@ effects();
 
 function playMusic(){
 
-let music=document.getElementById("birthdayMusic");
+const music = document.getElementById("birthdayMusic");
 
-music.volume = 0.5;
-
-music.play()
-.then(()=>{
-
-console.log("Music started");
-
-})
-.catch(error=>{
-
-alert("Music error");
-
-});
+music.play();
 
 }
 
