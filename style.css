@@ -580,3 +580,20 @@ padding:20px;
     }
 
 }
+/* Smooth performance improvements */
+
+.card{
+    animation-duration:0.45s;
+    will-change:transform, opacity;
+}
+
+.bigImage,
+.characters img,
+.cakePhoto img{
+    image-rendering:auto;
+    will-change:transform;
+}
+
+button{
+    transform:translateZ(0);
+}
