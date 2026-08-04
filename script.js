@@ -1,7 +1,7 @@
 const app = document.getElementById("app");
 
 
-function startGame(){
+function start(){
 
 app.innerHTML = `
 
@@ -13,7 +13,7 @@ app.innerHTML = `
 
 
 <p>
-A special surprise was created only for my Duduzilla ❤️
+A secret surprise was created only for Duduzilla ❤️
 </p>
 
 
@@ -23,7 +23,7 @@ A special surprise was created only for my Duduzilla ❤️
 
 
 <p>
-Find the magic heart to start the adventure ✨
+Find the magic heart ✨
 </p>
 
 
@@ -42,17 +42,17 @@ app.innerHTML = `
 <div class="card">
 
 <h1>
-✨ You found it! ✨
+✨ You found the heart! ✨
 </h1>
 
 
 <p>
-The first secret is unlocked...
+The first secret is unlocked ❤️
 </p>
 
 
-<button onclick="openEnvelope()">
-Open the surprise 💌
+<button onclick="envelope()">
+Open the envelope 💌
 </button>
 
 
@@ -64,25 +64,31 @@ Open the surprise 💌
 
 
 
-function openEnvelope(){
+function envelope(){
 
 app.innerHTML = `
 
 <div class="card">
 
 <h1>
-💌 A mysterious envelope
+💌 A mysterious letter
 </h1>
 
 
+<div class="envelope" onclick="openLock()">
+
+<div class="paper">
+❤️
+</div>
+
+<div class="flap"></div>
+
+</div>
+
+
 <p>
-Something special is waiting inside...
+Click the envelope
 </p>
-
-
-<button onclick="showPassword()">
-Open the envelope
-</button>
 
 
 </div>
@@ -93,44 +99,42 @@ Open the envelope
 
 
 
-function showPassword(){
+function openLock(){
 
 app.innerHTML = `
 
 <div class="card">
 
 <h1>
-🔒 Secret Lock
+🔒 Secret Code
 </h1>
 
 
 <p>
-Only Duduzilla knows the code ❤️
+Only Duduzilla knows the password ❤️
 </p>
 
 
-<input 
-id="code"
-placeholder="DD.MM"
+<input id="code"
+placeholder="09.08"
 style="
-padding:15px;
-font-size:20px;
+padding:12px;
 border-radius:20px;
-border:2px solid pink;
+font-size:18px;
 text-align:center;
-"
->
+border:2px solid pink;
+">
 
 
 <br>
 
 
 <button onclick="checkCode()">
-Unlock ❤️
+Unlock 🔓
 </button>
 
 
-<p id="message"></p>
+<p id="error"></p>
 
 
 </div>
@@ -143,43 +147,21 @@ Unlock ❤️
 
 function checkCode(){
 
-let code=document.getElementById("code").value;
+let value=document.getElementById("code").value;
 
 
-if(code=="09.08" || code=="0908"){
+if(value=="09.08" || value=="0908"){
 
-app.innerHTML=`
-
-<div class="card">
-
-<h1>
-🔓 Unlocked!
-</h1>
-
-
-<p>
-You found the secret code ❤️
-</p>
-
-
-<button onclick="firstLetter()">
-Continue 💕
-</button>
-
-
-</div>
-
-`;
+firstLetter();
 
 }
 
 else{
 
-document.getElementById("message").innerHTML=
-"❌ Almost! Try again ❤️";
+document.getElementById("error").innerHTML=
+"❌ Try again ❤️";
 
 }
-
 
 }
 
@@ -193,6 +175,7 @@ app.innerHTML=`
 
 <div class="characters">
 
+
 <img src="dudu.png">
 
 
@@ -205,38 +188,24 @@ app.innerHTML=`
 
 <p>
 
-Today is a very special day for a very special person.
+Today is a very special day.
 
 <br><br>
 
-Happy Birthday, my Duduzilla! 🎂
+Happy Birthday! 🎂
+
+<br>
+
+I created this little adventure only for you.
 
 <br><br>
 
-This is my first time creating something like this hehe 🤭
-
-<br><br>
-
-I wish you the sweetest and the best things in this world.
-
-<br><br>
-
-I love and appreciate every moment we spend together,
-even when we are far away.
-
-<br><br>
-
-You are the strongest, most handsome,
-smartest, hottest and cutest person in the whole world.
-
-<br><br>
-
-I love you so much ❤️
+More surprises are waiting...
 
 </p>
 
 
-<button onclick="showDudu()">
+<button onclick="duduMessage()">
 Continue 💕
 </button>
 
@@ -245,6 +214,7 @@ Continue 💕
 
 
 <img src="bubu.png">
+
 
 </div>
 
@@ -255,4 +225,63 @@ Continue 💕
 }
 
 
-startGame();
+
+function duduMessage(){
+
+app.innerHTML=`
+
+<div class="card">
+
+<h1>
+🐻 Dudu has a message
+</h1>
+
+
+<p>
+"Someone very special made this surprise for you ❤️"
+</p>
+
+
+<button onclick="bubuMessage()">
+Next ✨
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+function bubuMessage(){
+
+app.innerHTML=`
+
+<div class="card">
+
+<h1>
+🐼 Bubu says...
+</h1>
+
+
+<p>
+"Keep smiling! The adventure is not finished yet 💖"
+</p>
+
+
+<button>
+Continue soon 🌸
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+start();
