@@ -71,6 +71,18 @@ heart.style.top =
 
 function findHeart(){
 
+heartClicks++;
+
+
+if(heartClicks < 3){
+
+moveHeart();
+
+return;
+
+}
+
+
 app.innerHTML=`
 
 <div class="card">
