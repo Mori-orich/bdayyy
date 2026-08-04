@@ -164,19 +164,22 @@ app.innerHTML=`
 
 <div class="card">
 
-
 <h1>
 💌 A secret letter
 </h1>
 
 
-<div class="envelope" onclick="password()">
+<div class="envelope" onclick="openLetter(this)">
+
+<div class="letterInside">
+❤️
+</div>
 
 </div>
 
 
 <p>
-Click the envelope
+Click the envelope 💕
 </p>
 
 
@@ -186,6 +189,21 @@ Click the envelope
 
 }
 
+
+
+function openLetter(el){
+
+el.classList.add("open");
+
+
+setTimeout(()=>{
+
+password();
+
+},1200);
+
+
+}
 
 
 
@@ -491,19 +509,24 @@ app.innerHTML=`
 </h1>
 
 
-<div class="cake">
-🎂🕯️🕯️🕯️
+<div class="pixelCake">
+
+🕯️ 🕯️ 🕯️
+<br>
+🍰🍰🍰
+<br>
+🟫🟫🟫
+
 </div>
 
 
 <p>
-
 Make a wish ✨
+</p>
 
-<br><br>
 
-You completed the adventure ❤️
-
+<p>
+❤️🎉 You completed the adventure 🎉❤️
 </p>
 
 
