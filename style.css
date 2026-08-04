@@ -443,3 +443,14 @@ filter:drop-shadow(0 0 25px yellow);
 }
 
 }
+.cakePhoto img{
+
+width:350px;
+max-width:90%;
+border-radius:25px;
+
+box-shadow:0 0 30px pink;
+
+animation:appear 1s ease;
+
+}
