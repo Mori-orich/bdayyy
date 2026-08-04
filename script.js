@@ -112,11 +112,13 @@ app.innerHTML = `
 
 <p>
 Only Duduzilla knows the password ❤️
+<br>
+Hint: a very special day 🎂
 </p>
 
 
 <input id="code"
-placeholder="09.08"
+placeholder="DD.MM"
 style="
 padding:12px;
 border-radius:20px;
