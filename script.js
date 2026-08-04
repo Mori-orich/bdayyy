@@ -588,7 +588,25 @@ effects();
 
 function playMusic(){
 
-alert("Кнопка работает");
+const music = document.getElementById("birthdayMusic");
+
+if(music){
+
+music.volume = 0.5;
+
+music.play()
+.then(()=>{
+
+console.log("Music started");
+
+})
+.catch((error)=>{
+
+console.log(error);
+
+});
+
+}
 
 }
 
