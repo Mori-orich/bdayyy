@@ -191,6 +191,13 @@ app.innerHTML=`
 
 <div class="card">
 
+<div class="characters">
+
+<img src="dudu.png">
+
+
+<div class="letter">
+
 <h1>
 💖 Happy Birthday My Duduzilla 💖
 </h1>
@@ -202,14 +209,44 @@ Today is a very special day for a very special person.
 
 <br><br>
 
-Happy Birthday ❤️
+Happy Birthday, my Duduzilla! 🎂
 
 <br><br>
 
-More surprises are waiting...
+This is my first time creating something like this hehe 🤭
+
+<br><br>
+
+I wish you the sweetest and the best things in this world.
+
+<br><br>
+
+I love and appreciate every moment we spend together,
+even when we are far away.
+
+<br><br>
+
+You are the strongest, most handsome,
+smartest, hottest and cutest person in the whole world.
+
+<br><br>
+
+I love you so much ❤️
 
 </p>
 
+
+<button onclick="showDudu()">
+Continue 💕
+</button>
+
+
+</div>
+
+
+<img src="bubu.png">
+
+</div>
 
 </div>
 
