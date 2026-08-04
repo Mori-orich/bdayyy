@@ -2,7 +2,25 @@ const app = document.getElementById("app");
 
 let tries = 0;
 
+function changeScreen(html){
 
+    app.classList.add("fadeOut");
+
+    setTimeout(()=>{
+
+        app.innerHTML = html;
+
+        app.classList.remove("fadeOut");
+
+        app.classList.add("fadeIn");
+
+        setTimeout(()=>{
+            app.classList.remove("fadeIn");
+        },500);
+
+    },350);
+
+}
 
 function effects(){
 
