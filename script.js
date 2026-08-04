@@ -3,25 +3,40 @@ const app = document.getElementById("app");
 let tries = 0;
 
 
-function hearts(){
 
-for(let i=0;i<20;i++){
+function effects(){
 
-let h=document.createElement("div");
+for(let i=0;i<15;i++){
 
-h.className="fall";
-h.innerHTML="❤️";
+let c=document.createElement("div");
 
-h.style.left=Math.random()*100+"%";
+c.className="confetti";
 
-document.body.appendChild(h);
+c.innerHTML="🎉";
+
+c.style.left=Math.random()*100+"%";
+
+document.body.appendChild(c);
 
 
-setTimeout(()=>{
+setTimeout(()=>c.remove(),5000);
 
-h.remove();
+}
 
-},5000);
+
+for(let i=0;i<6;i++){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML="🎈";
+
+b.style.left=Math.random()*100+"%";
+
+b.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(b);
 
 }
 
@@ -56,7 +71,6 @@ Find my magic heart ❤️
 
 `;
 
-
 moveHeart();
 
 }
@@ -64,21 +78,16 @@ moveHeart();
 
 
 
-
 function moveHeart(){
 
-let heart=document.getElementById("heart");
+let h=document.getElementById("heart");
 
-if(!heart)return;
-
-
-heart.style.left=
-Math.random()*(window.innerWidth-100)+"px";
+if(!h)return;
 
 
-heart.style.top=
-Math.random()*(window.innerHeight-100)+"px";
+h.style.left=Math.random()*(window.innerWidth-100)+"px";
 
+h.style.top=Math.random()*(window.innerHeight-100)+"px";
 
 }
 
@@ -93,12 +102,19 @@ tries++;
 
 if(tries<3){
 
+
 let text=
-tries==1
+
+tries===1
+
 ?
-"😜 Not so fast! Catch my heart!"
+
+"😜 Too fast! Catch my heart ❤️"
+
 :
-"🤭 Almost! One more try ❤️";
+
+"🤭 Almost! One more try 💖";
+
 
 
 app.innerHTML=`
@@ -138,7 +154,7 @@ app.innerHTML=`
 
 
 <p>
-The adventure begins ❤️
+Now the real surprise begins 💖
 </p>
 
 
@@ -152,7 +168,6 @@ Open the envelope 💌
 `;
 
 }
-
 
 
 
@@ -179,15 +194,16 @@ app.innerHTML=`
 
 
 <p>
-Click the envelope 💕
+Click the envelope
 </p>
-
 
 </div>
 
 `;
 
 }
+
+
 
 
 
@@ -225,24 +241,15 @@ Enter the special date ❤️
 </p>
 
 
-<input id="code"
-placeholder="DD.MM"
-style="
-padding:15px;
-font-size:20px;
-border-radius:20px;
-border:2px solid pink;
-text-align:center;
-">
+<input id="code" placeholder="DD.MM">
 
 
-<button onclick="check()">
+<button onclick="checkCode()">
 Unlock 🔓
 </button>
 
 
 <p id="error"></p>
-
 
 </div>
 
@@ -253,36 +260,34 @@ Unlock 🔓
 
 
 
-function check(){
+
+function checkCode(){
+
+let value=document.getElementById("code").value;
 
 
-let code=document.getElementById("code").value;
+if(value==="09.08" || value==="0908"){
 
-
-if(code=="09.08" || code=="0908"){
-
-letter();
+firstLetter();
 
 }
 
 else{
 
 document.getElementById("error").innerHTML=
-"Wrong date ❤️";
+"Try again ❤️";
+
+}
 
 }
 
 
-}
 
 
 
+function firstLetter(){
 
-
-function letter(){
-
-
-hearts();
+effects();
 
 
 app.innerHTML=`
@@ -293,10 +298,11 @@ app.innerHTML=`
 <div class="characters">
 
 
-<img src="dudu.png">
+<img src="dudu.gif">
 
 
-<div class="letter">
+<div>
+
 
 <h1>
 💖 Happy Birthday My Duduzilla 💖
@@ -309,11 +315,11 @@ Happy Birthday! 🎂
 
 <br><br>
 
-I made this little adventure only for you.
+I created this little adventure especially for you.
 
 <br><br>
 
-You are very special ❤️
+You are a very special person ❤️
 
 </p>
 
@@ -326,7 +332,7 @@ Continue 💕
 </div>
 
 
-<img src="bubu.png">
+<img src="bubu.gif">
 
 
 </div>
@@ -350,7 +356,7 @@ app.innerHTML=`
 <div class="card">
 
 <h1>
-🍌 Minions message
+🍌 Minions have something to say
 </h1>
 
 
@@ -367,7 +373,6 @@ Happy Birthday!
 <button onclick="catOne()">
 Next 🐱
 </button>
-
 
 </div>
 
@@ -386,6 +391,7 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <h1>
 🐱 For my lovely kitty
 </h1>
@@ -395,9 +401,7 @@ app.innerHTML=`
 
 
 <p>
-
 A cute little wish for my lovely kitty 🐱❤️
-
 </p>
 
 
@@ -415,6 +419,7 @@ Next 🐾
 
 
 
+
 function catTwo(){
 
 
@@ -422,8 +427,9 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <h1>
-🐾 More cuddles
+🐾 Little paws and hugs
 </h1>
 
 
@@ -431,9 +437,7 @@ app.innerHTML=`
 
 
 <p>
-
-Sending you endless hugs and warm paws ❤️
-
+Sending you warm hugs, love and endless cuddles ❤️
 </p>
 
 
@@ -459,14 +463,13 @@ app.innerHTML=`
 
 <div class="card">
 
+
 <h1>
 🎁 One last surprise
 </h1>
 
 
-<div style="font-size:100px">
-🎁
-</div>
+<img src="dudububu.gif" class="bigImage">
 
 
 <button onclick="cake()">
@@ -496,7 +499,7 @@ music.play();
 }
 
 
-hearts();
+effects();
 
 
 app.innerHTML=`
@@ -505,7 +508,7 @@ app.innerHTML=`
 
 
 <h1>
-🎂 Happy Birthday 🎂
+🎂 Happy Birthday Duduzilla 🎂
 </h1>
 
 
@@ -521,9 +524,9 @@ Make a wish ✨
 </p>
 
 
-<p>
-❤️🎉 You completed the adventure 🎉❤️
-</p>
+<button onclick="finalLetter()">
+Open my final letter 💌
+</button>
 
 
 </div>
@@ -533,6 +536,58 @@ Make a wish ✨
 }
 
 
+
+
+
+function finalLetter(){
+
+
+app.innerHTML=`
+
+<div class="card finalLetter">
+
+
+<h1>
+💌 My final message ❤️
+</h1>
+
+
+<p id="typing"></p>
+
+
+</div>
+
+`;
+
+
+let text=
+
+"Happy Birthday my Duduzilla ❤️ Thank you for being such a wonderful person. I hope your day is full of happiness, smiles and beautiful moments. Never forget how special you are 💖";
+
+
+let i=0;
+
+
+let timer=setInterval(()=>{
+
+document.getElementById("typing").innerHTML+=text[i];
+
+i++;
+
+
+if(i>=text.length){
+
+clearInterval(timer);
+
+}
+
+},50);
+
+
+effects();
+
+
+}
 
 
 
