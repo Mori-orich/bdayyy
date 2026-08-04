@@ -20,6 +20,9 @@ document.body.appendChild(h);
 }
 
 
+let heartClicks = 0;
+
+
 function start(){
 
 app.innerHTML=`
@@ -31,25 +34,38 @@ app.innerHTML=`
 </h1>
 
 <p>
-A secret surprise was created only for Duduzilla ❤️
+Find the magic heart ❤️
 </p>
 
-
-<div class="heart" onclick="findHeart()">
+<div id="movingHeart" class="heart" onclick="findHeart()">
 ❤️
 </div>
-
-
-<p>
-Find the magic heart ✨
-</p>
-
 
 </div>
 
 `;
 
+moveHeart();
+
 }
+
+
+function moveHeart(){
+
+let heart=document.getElementById("movingHeart");
+
+if(!heart) return;
+
+heart.style.position="relative";
+
+heart.style.left =
+(Math.random()*250-125)+"px";
+
+heart.style.top =
+(Math.random()*100-50)+"px";
+
+}
+
 
 
 
