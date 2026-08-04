@@ -2,148 +2,224 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Duduzilla Birthday Quest 💌</title>
+<title>Duduzilla Birthday Quest 💖</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
 height:100vh;
 overflow:hidden;
-font-family:Arial,sans-serif;
-background:linear-gradient(#140022,#3d1655);
+font-family:"Arial",sans-serif;
+background:linear-gradient(135deg,#ffd6e8,#fff5fb,#ffd1dc);
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
 }
 
-.stars span{
-position:absolute;
-animation:fall linear infinite;
-font-size:18px;
-}
-
-@keyframes fall{
-from{transform:translateY(100vh);opacity:0}
-50%{opacity:1}
-to{transform:translateY(-20vh);opacity:0}
-}
-
-.box{
+#app{
+width:95%;
+max-width:500px;
 text-align:center;
-width:90%;
-max-width:420px;
 }
 
 h1{
-color:#ffd1e8;
-text-shadow:0 0 20px pink;
+color:#ff4f8b;
+font-size:32px;
+text-shadow:0 0 15px #ffb6d2;
 }
+
+h2{
+color:#ff4f8b;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+color:#555;
+}
+
 
 button{
-background:#ff6fa8;
-border:0;
-padding:15px 30px;
-border-radius:40px;
+background:linear-gradient(45deg,#ff5f9e,#ff8fc1);
+border:none;
 color:white;
 font-size:18px;
+padding:15px 35px;
+border-radius:50px;
 cursor:pointer;
+box-shadow:0 8px 20px #ffb6d2;
 margin-top:20px;
-}
-
-.heart{
-font-size:55px;
-cursor:pointer;
-animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-50%{transform:scale(1.3)}
-}
-
-
-.envelope{
-width:280px;
-height:170px;
-background:#ff78aa;
-margin:auto;
-border-radius:15px;
-position:relative;
-cursor:pointer;
-box-shadow:0 0 40px pink;
-}
-
-.flap{
-position:absolute;
-top:0;
-border-left:140px solid transparent;
-border-right:140px solid transparent;
-border-top:90px solid #ffb6d2;
-transform-origin:top;
-transition:1s;
-}
-
-.paper{
-position:absolute;
-width:230px;
-height:130px;
-background:white;
-left:25px;
-top:20px;
-border-radius:15px;
-color:#ff4f8b;
-padding:20px;
-transition:1s;
-z-index:-1;
-}
-
-.open .flap{
-transform:rotateX(180deg);
-}
-
-.open .paper{
-transform:translateY(-100px);
-z-index:2;
 }
 
 
 .card{
+
 background:white;
-color:#555;
-padding:25px;
-border-radius:25px;
-animation:show 1s;
+border-radius:35px;
+padding:35px 25px;
+width:100%;
+min-height:500px;
+box-shadow:0 0 40px rgba(255,120,170,.5);
+animation:appear 1s;
+border:3px solid #ffd0e2;
+
 }
 
-.card h2{
-color:#ff4f8b;
-}
 
+@keyframes appear{
 
-@keyframes show{
 from{
 opacity:0;
-transform:scale(.5);
+transform:scale(.6);
 }
+
 to{
 opacity:1;
 transform:scale(1);
 }
+
 }
 
 
-.fly{
-animation:fly 1s forwards;
+
+.stars span{
+
+position:absolute;
+font-size:22px;
+animation:move 5s infinite linear;
+
 }
 
-@keyframes fly{
-to{
-transform:translateY(-300px) scale(1.2);
+
+@keyframes move{
+
+from{
+transform:translateY(100vh);
 opacity:0;
 }
+
+50%{
+opacity:1;
 }
+
+to{
+transform:translateY(-20vh);
+opacity:0;
+}
+
+}
+
+
+
+img{
+
+max-width:220px;
+max-height:220px;
+object-fit:contain;
+animation:float 3s infinite ease-in-out;
+
+}
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+
+
+.envelope{
+
+width:320px;
+height:200px;
+background:#ff79ad;
+margin:30px auto;
+position:relative;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 0 40px pink;
+
+}
+
+
+.flap{
+
+position:absolute;
+top:0;
+left:0;
+
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:110px solid #ffb9d5;
+
+transform-origin:top;
+transition:1s;
+
+}
+
+
+.paper{
+
+position:absolute;
+background:white;
+width:270px;
+height:170px;
+left:25px;
+top:20px;
+border-radius:20px;
+z-index:-1;
+transition:1s;
+color:#ff4f8b;
+font-size:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+.open .flap{
+
+transform:rotateX(180deg);
+
+}
+
+
+.open .paper{
+
+transform:translateY(-130px);
+z-index:2;
+
+}
+
+
+
+.characters{
+
+display:flex;
+justify-content:center;
+gap:15px;
+align-items:center;
+margin-bottom:15px;
+
+}
+
+
+.small{
+
+width:140px;
+height:140px;
+
+}
+
 
 </style>
 </head>
@@ -155,47 +231,69 @@ opacity:0;
 <div class="stars"></div>
 
 
-<div class="box" id="app">
+<div id="app">
 
-<h1>💌 Secret Birthday Quest 💌</h1>
+
+<div class="card">
+
+<h1>
+💌 Secret Birthday Quest 💌
+</h1>
+
 
 <p>
-A special surprise was created for one special person...
+A special adventure was created for the most special person...
 </p>
 
-<button onclick="start()">
-START ✨
+
+<button onclick="startQuest()">
+Start the magic ✨
 </button>
+
 
 </div>
 
 
+</div>
 <script>
+
+let app=document.getElementById("app");
 
 
 let stars=document.querySelector(".stars");
 
-for(let i=0;i<40;i++){
+for(let i=0;i<35;i++){
+
 let s=document.createElement("span");
 s.innerHTML="✨";
 s.style.left=Math.random()*100+"%";
-s.style.animationDuration=(3+Math.random()*5)+"s";
+s.style.animationDelay=Math.random()*5+"s";
 stars.appendChild(s);
+
 }
 
 
-function start(){
+
+function startQuest(){
 
 app.innerHTML=`
+
+<div class="card">
 
 <h1>❤️ Find the magic heart ❤️</h1>
 
 <p>
-Only the right heart can unlock the surprise
+A little challenge before the surprise...
 </p>
 
-<div class="heart" onclick="found()">
+<div onclick="foundHeart()" style="font-size:70px;cursor:pointer;">
 💗
+</div>
+
+<p>
+Touch the heart ✨
+</p>
+
 </div>
 
 `;
@@ -203,15 +301,24 @@ Only the right heart can unlock the surprise
 }
 
 
-function found(){
+
+
+function foundHeart(){
 
 app.innerHTML=`
 
-<h1>✨ You found it! ✨</h1>
+<div class="card">
 
-<p>The secret letter is waiting...</p>
+<h1>
+✨ You found the secret! ✨
+</h1>
 
-<div class="envelope" onclick="openLetter()">
+<p>
+The birthday letter is waiting for you...
+</p>
+
+
+<div class="envelope" onclick="openEnvelope()">
 
 <div class="paper">
 💌
@@ -221,56 +328,76 @@ app.innerHTML=`
 
 </div>
 
+
+<p>
+Tap the envelope twice 💕
+</p>
+
+
+</div>
+
 `;
 
 }
 
 
+
 let clicks=0;
 
 
-function openLetter(){
+function openEnvelope(){
 
 clicks++;
 
 let env=document.querySelector(".envelope");
 
 
-if(clicks==1){
+if(clicks===1){
 
 env.classList.add("open");
 
 }
 
 
-if(clicks==2){
+if(clicks===2){
 
-env.classList.add("fly");
-
-setTimeout(letter,1000);
+firstLetter();
 
 }
 
 }
 
 
-function letter(){
+
+
+function firstLetter(){
 
 app.innerHTML=`
 
 <div class="card">
 
-<h2>
+
+<div class="characters">
+
+<img src="dudu.png" class="small">
+
+<img src="bubu.png" class="small">
+
+</div>
+
+
+<h1>
 💖 Happy Birthday My Duduzilla 💖
-</h2>
+</h1>
 
 
 <p>
+
 Today is a very special day for a very special person.
 
 <br><br>
 
-Happy birthday, my Duduzilla!
+Happy birthday, my Duduzilla! 🎂
 
 <br><br>
 
@@ -283,7 +410,7 @@ I wish you the sweetest and the best things in this world.
 
 <br><br>
 
-I love you so much and I appreciate every moment we spend together, even when we are far away.
+I wish you endless happiness, success, good health and dreams coming true.
 
 <br><br>
 
@@ -291,13 +418,13 @@ You are the strongest, most handsome, smartest, hottest and cutest person in the
 
 <br><br>
 
-❤️ I love you ❤️
+I love you so much ❤️
 
 </p>
 
 
-<button onclick="next()">
-Open next surprise 🐻🐼
+<button onclick="minionsLetter()">
+Continue the journey 💕
 </button>
 
 
@@ -309,43 +436,93 @@ Open next surprise 🐻🐼
 
 
 
-function next(){
+
+function minionsLetter(){
 
 app.innerHTML=`
 
 <div class="card">
 
-<div style="display:flex; justify-content:center; gap:20px;">
-<img src="dudu.png" width="120">
-<img src="bubu.png" width="120">
-</div>
 
-<h2>
-🐻 Dudu & Bubu 🐼
-</h2>
+<img src="minions.png">
+
+
+<h1>
+🍌 A Minion Message 🍌
+</h1>
 
 
 <p>
 
-Even distance cannot separate two hearts.
+Even the Minions know one thing...
 
 <br><br>
 
-Thank you for being my favorite person.
+You are one of the coolest and funniest people ever!
 
 <br><br>
 
-You are my happiness, my smile and my special one ❤️
+Never stop smiling, dreaming and being amazing.
 
 <br><br>
 
-🎂 Happy Birthday 🎂
+You deserve all the happiness in the world ❤️
 
 </p>
 
 
-<button onclick="finalPage()">
-Final surprise ✨
+<button onclick="catsLetter()">
+Continue the journey 💕
+</button>
+
+
+</div>
+
+`;
+
+}
+function catsLetter(){
+
+app.innerHTML=`
+
+<div class="card">
+
+
+<div class="characters">
+
+<img src="mew.png" class="small">
+
+<img src="mew2.png" class="small">
+
+</div>
+
+
+<h1>
+🐱 A Little Cat Message 🐱
+</h1>
+
+
+<p>
+
+Even the little cats have something to tell you...
+
+<br><br>
+
+You deserve endless love, happiness and beautiful moments.
+
+<br><br>
+
+Never forget how special and amazing you are ❤️
+
+<br><br>
+
+Keep smiling, keep dreaming and always stay yourself.
+
+</p>
+
+
+<button onclick="finalSurprise()">
+Continue the journey 💕
 </button>
 
 
@@ -357,31 +534,60 @@ Final surprise ✨
 
 
 
-function finalPage(){
+
+function finalSurprise(){
 
 app.innerHTML=`
 
 <div class="card">
 
-<h2>
-🎂✨ Surprise ✨🎂
-</h2>
+
+<h1>
+🎂✨ Happy Birthday Duduzilla ✨🎂
+</h1>
 
 
-<p style="font-size:45px">
-❤️🎉❤️
+<p style="font-size:55px">
+🎉❤️🎉
 </p>
 
 
 <p>
 
-No matter how far we are,
-you will always have a special place in my heart.
+This little adventure was made especially for you.
 
 <br><br>
 
-I love you forever, Duduzilla ❤️
+Even if we are far away,
+you are always close to my heart.
 
+<br><br>
+
+Thank you for every smile,
+every conversation and every beautiful moment.
+
+<br><br>
+
+You are my favorite person.
+
+<br><br>
+
+I love you forever ❤️
+
+</p>
+
+
+<div class="characters">
+
+<img src="dudu.png" class="small">
+
+<img src="bubu.png" class="small">
+
+</div>
+
+
+<p style="font-size:35px">
+❤️✨🎆✨❤️
 </p>
 
 
@@ -389,24 +595,29 @@ I love you forever, Duduzilla ❤️
 
 `;
 
-for(let i=0;i<80;i++){
 
-let h=document.createElement("span");
-h.innerHTML="❤️";
-h.style.position="absolute";
-h.style.left=Math.random()*100+"%";
-h.style.top=Math.random()*100+"%";
-h.style.fontSize="25px";
+for(let i=0;i<60;i++){
 
-document.body.appendChild(h);
+let heart=document.createElement("span");
+
+heart.innerHTML="❤️";
+
+heart.style.position="absolute";
+heart.style.left=Math.random()*100+"%";
+heart.style.top=Math.random()*100+"%";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
 
 }
 
 
 }
+
 
 
 </script>
 
 </body>
+
 </html>
